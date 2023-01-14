@@ -16,6 +16,8 @@
 // };
 import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm'
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 export class App extends Component {
 
@@ -30,14 +32,14 @@ state = {
 
     render() {
         return (
-            <>
+            <div>
                 <h1>Phonebook</h1>
-                <ContactForm onSubmit={ this.formSubmit } />
+                <ContactForm onSubmit={this.formSubmit} />
+                
                 <h2>Contacts</h2>
-                <label>Find contacts by name</label>
-                <input type="text" />
-                <ul></ul>
-            </>
+                <Filter />
+                <ContactList />
+            </div>
     )
 }
 
