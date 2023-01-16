@@ -17,10 +17,18 @@ state = {
     filter: '',
   }
     
-  formSubmit = contact => {
-    this.setState(prevState => {
-      return { contacts: [{ id: nanoid(), name: contact.name, number: contact.number }, ...prevState.contacts] };
-    });
+  formSubmit = ({ name, number }) => {
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    this.state.contacts.find(input =>
+      input.name.toLowerCase() === contact.name.toLowerCase()  || input.number === contact.number)
+      ? alert(`${name} is already in contacts`)
+      : this.setState(({ contacts }) => ({
+          contacts: [contact, ...contacts],
+        }));
   };
 
     filterInput = event => {
@@ -34,7 +42,7 @@ state = {
     );
   };
 
-    deleteContact = id => {
+  deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
