@@ -2,12 +2,15 @@ import React from 'react';
 import { ContForm, Button, Input } from './ContactForm.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
 const initialValues = {
         name: '',
         number: '',
 }
+
+const notify = () => toast.success('New contact successfully added');
     
 const FormSchema = yup.object().shape({
   name: yup.string().min(2).required(),
@@ -42,8 +45,10 @@ export const ContactForm  = ({ onSubmit }) => {
                      title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                      required
                         />
-                        
-                    <Button type="submit">Add contact</Button>
+                      <div> 
+                <Button type="submit" onClick={notify}>Add contact</Button>
+                    <Toaster />
+                    </div> 
                 </ContForm>
                 </Formik>
     )
