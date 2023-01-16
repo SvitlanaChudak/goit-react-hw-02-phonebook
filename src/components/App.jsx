@@ -42,12 +42,12 @@ state = {
     this.setState({ filter: event.target.value });
   };
 
-  // findContact = () => {
-  //   const { filter, contacts } = this.state;
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-  // };
+  findContact = () => {
+    const { filter, contacts } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
 
     deleteContact = id => {
     this.setState(prevState => ({
@@ -64,7 +64,7 @@ state = {
                 
                 <h2>Contacts</h2>
                 <Filter filter={this.state.filter} onChange={this.filterInput}/>
-                <ContactList  contacts={this.state.contacts} deleteContact={this.deleteContact}/>
+                <ContactList  contacts={this.findContact()} deleteContact={this.deleteContact}/>
             </div>
     )
 }
