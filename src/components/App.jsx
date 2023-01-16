@@ -1,24 +1,9 @@
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
 import { nanoid } from 'nanoid';
 import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm'
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { Container } from './App.styled';
 
 export class App extends Component {
 
@@ -58,14 +43,14 @@ state = {
     render() {
        
         return (
-            <div>
+            <Container>
                 <h1>Phonebook</h1>
                 <ContactForm onSubmit={this.formSubmit} contacts={this.state.contacts}/>
                 
                 <h2>Contacts</h2>
                 <Filter filter={this.state.filter} onChange={this.filterInput}/>
                 <ContactList  contacts={this.findContact()} deleteContact={this.deleteContact}/>
-            </div>
+            </Container>
     )
 }
 
