@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Form, Field } from 'formik';
 
-export const Form = styled.form`
+export const ContForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -29,7 +30,7 @@ background-color: white;
 }
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
 border: none;
 padding: 5px;
 border-radius: 5px;
