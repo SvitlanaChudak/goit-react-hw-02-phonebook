@@ -38,6 +38,22 @@ state = {
     });
   };
 
+    filterInput = event => {
+    this.setState({ filter: event.target.value });
+  };
+
+  // findContact = () => {
+  //   const { filter, contacts } = this.state;
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
+
+    deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
 
     render() {
        
@@ -47,8 +63,8 @@ state = {
                 <ContactForm onSubmit={this.formSubmit} contacts={this.state.contacts}/>
                 
                 <h2>Contacts</h2>
-                <Filter />
-                <ContactList  contacts={this.state.contacts}/>
+                <Filter filter={this.state.filter} onChange={this.filterInput}/>
+                <ContactList  contacts={this.state.contacts} deleteContact={this.deleteContact}/>
             </div>
     )
 }
