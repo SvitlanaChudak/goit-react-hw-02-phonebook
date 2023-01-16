@@ -31,7 +31,7 @@ class ContactForm extends Component {
     render() {
         return (
             <Form onSubmit={this.inputSubmit}>
-                    <label htmlFor={this.nameInputId}>Name
+                    <label htmlFor={this.nameInputId}>Name</label>
                     <Input
                      type="text"
                      name="name"
@@ -41,8 +41,8 @@ class ContactForm extends Component {
                      required
                      value={this.state.name}
                      onChange={this.inputChange}
-                /></label>
-                    <label>Number
+                />
+                    <label>Number</label>
                     <Input
                      type="tel"
                      name="number"
@@ -51,7 +51,7 @@ class ContactForm extends Component {
                      required
                      value={this.state.number}
                      onChange={this.inputChange}
-/></label>
+/>
                     <Button type="submit">Add contact</Button>
                 </Form>
         )
