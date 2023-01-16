@@ -39,4 +39,9 @@ outline: none;
 :hover {
     box-shadow: 0 0 10px #c6cccced;
 }
+
+:focus {
+    box-shadow: 0 0 10px #c6cccced;
+    border: 1px solid blue;
+}
 `;

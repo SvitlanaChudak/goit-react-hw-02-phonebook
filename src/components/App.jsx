@@ -17,7 +17,7 @@ state = {
     filter: '',
   }
     
-    formSubmit = contact => {
+  formSubmit = contact => {
     this.setState(prevState => {
       return { contacts: [{ id: nanoid(), name: contact.name, number: contact.number }, ...prevState.contacts] };
     });

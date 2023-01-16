@@ -14,6 +14,7 @@ class ContactForm extends Component {
     };
 
     inputSubmit = event => {
+        
         event.preventDefault();
 
         this.props.onSubmit(this.state);
@@ -30,7 +31,7 @@ class ContactForm extends Component {
     render() {
         return (
             <Form onSubmit={this.inputSubmit}>
-                    <label htmlFor={this.nameInputId}>Name</label>
+                    <label htmlFor={this.nameInputId}>Name
                     <Input
                      type="text"
                      name="name"
@@ -40,8 +41,8 @@ class ContactForm extends Component {
                      required
                      value={this.state.name}
                      onChange={this.inputChange}
-                />
-                    <label>Number</label>
+                /></label>
+                    <label>Number
                     <Input
                      type="tel"
                      name="number"
@@ -50,7 +51,7 @@ class ContactForm extends Component {
                      required
                      value={this.state.number}
                      onChange={this.inputChange}
-/>
+/></label>
                     <Button type="submit">Add contact</Button>
                 </Form>
         )
