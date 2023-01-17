@@ -2,15 +2,13 @@ import React from 'react';
 import { ContForm, Button, Input } from './ContactForm.styled';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
 const initialValues = {
         name: '',
         number: '',
 }
-
-const notify = () => toast.success('New contact successfully added');
     
 const FormSchema = yup.object().shape({
   name: yup.string().min(2).required(),
@@ -46,7 +44,7 @@ export const ContactForm  = ({ onSubmit }) => {
                      required
                         />
                       <div> 
-                <Button type="submit" onClick={notify}>Add contact</Button>
+                <Button type="submit" >Add contact</Button>
                     <Toaster />
                     </div> 
                 </ContForm>

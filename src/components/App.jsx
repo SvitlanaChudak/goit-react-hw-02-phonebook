@@ -4,6 +4,7 @@ import { ContactForm } from './ContactForm/ContactForm'
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Container } from './App.styled';
+import toast from 'react-hot-toast';
 
 export class App extends Component {
 
@@ -16,19 +17,23 @@ state = {
     ],
     filter: '',
   }
-    
-  formSubmit = ({ name, number }) => {
+
+    formSubmit = ({ name, number }) => {
     const contact = {
       id: nanoid(),
       name,
       number,
-    };
-    this.state.contacts.find(input =>
-      input.name.toLowerCase() === contact.name.toLowerCase()  || input.number === contact.number)
-      ? alert(`${name} is already in contacts`)
-      : this.setState(({ contacts }) => ({
+      };
+      const isExist = this.state.contacts.find(input =>
+        input.name.toLowerCase() === contact.name.toLowerCase() || input.number === contact.number);
+      if (isExist) {
+        alert(`${name} is already in contacts`)
+        return
+      }
+      this.setState(({ contacts }) => ({
           contacts: [contact, ...contacts],
-        }));
+      }));
+      toast.success('New contact successfully added');
   };
 
     filterInput = event => {
